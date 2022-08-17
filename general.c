@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 int main(void)
 {
     char output[1000000] = {0};
-    FILE *file = fopen("batch.sh", "w");
+    FILE *file = fopen("batchmux.sh", "w");
     if(file == NULL)
     {
         printf("error opening file\n");
