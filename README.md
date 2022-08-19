@@ -11,8 +11,7 @@ Simple code to do the following:
 
 ### CS50 Library
 
-#include <cs50.h>
-'''bash
+```bash
 wget https://packagecloud.io/install/repositories/cs50/repo/script.rpm.sh
 ```
 
