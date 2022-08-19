@@ -7,16 +7,19 @@
 char* string_replace(char* source, size_t sourceSize, char* substring, char* with)
 {
     char* substring_source = strstr(source, substring);
-    if (substring_source == NULL) {
+    if (substring_source == NULL) 
+    {
         return NULL;
     }
  
-    if (sourceSize < strlen(source) + (strlen(with) - strlen(substring)) + 1) {
+    if (sourceSize < strlen(source) + (strlen(with) - strlen(substring)) + 1) 
+    {
         printf("Buffer size is too small\n");
         return NULL;
     }
  
-    memmove(
+    memmove
+    (
         substring_source + strlen(with),
         substring_source + strlen(substring),
         strlen(substring_source) - strlen(substring) + 1
@@ -46,17 +49,30 @@ int main(void)
     fprintf(file, "#!/bin/bash\n");
 
     char output[2000] = {0};
-    char ii[3] = {0};
+    char ii[10] = {0};
     //loop function
     
-    for (int i = 1; i < counter + 1; i++)
+    if (counter < 100) 
     {
-        snprintf(ii, 3, "%02d", i);
-        snprintf(output, 2000, "%s\n", command);
-        while(string_replace(output, 2000, "XX", ii));
-        fprintf(file, "%s", output);
-    }
 
+        for (int i = 1; i < counter + 1; i++)
+        {
+            snprintf(ii, 10, "%02d", i);
+            snprintf(output, 2000, "%s\n", command);
+            while(string_replace(output, 2000, "XX", ii));
+            fprintf(file, "%s", output);
+        }
+    }
+    else 
+    {
+        for (int i = 1; i < counter + 1; i++)
+        {
+            snprintf(ii, 10, "%03d", i);
+            snprintf(output, 2000, "%s\n", command);
+            while(string_replace(output, 2000, "XX", ii));
+            fprintf(file, "%s", output);
+        }
+    }
     //end
     fclose(file);
 }
