@@ -1,30 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
+#include <cs50.h>
 
 int main(void)
 {
-    char output[1000000] = {0};
     FILE *file = fopen("batchmux.sh", "w");
     if(file == NULL)
     {
         printf("error opening file\n");
         exit(1);
     }
-    int counter;
-    printf("Number of episodes: \n");
-    scanf("%d", &counter);
-
-    char command[10000] = {0};
-    printf("Input command\n");
-    scanf("%s", &command);
+    int counter = get_int("Number of episodes: \n");
+    string command = get_string("Input command\n");
 
     fprintf(file, "#!/bin/bash\n");
-    for (int i = 1; i < counter + 1; i = i + 1)
+    for (int i = 1; i < counter + 1; i++)
     {
-        snprintf(output, 1000000, "%s\n", command);
-        fprintf(file, "%s", output);
+        fprintf(file, "%s\n", command);
     }
     fclose(file);
 }
