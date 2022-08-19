@@ -45,15 +45,15 @@ int main(void)
     //bash script header
     fprintf(file, "#!/bin/bash\n");
 
-    char output[1000000] = {0};
+    char output[2000] = {0};
     char ii[3] = {0};
     //loop function
     
     for (int i = 1; i < counter + 1; i++)
     {
         snprintf(ii, 3, "%02d", i);
-        snprintf(output, 1000000, "%s\n", command);
-        while(string_replace(output, 1000000, "XX", ii));
+        snprintf(output, 2000, "%s\n", command);
+        while(string_replace(output, 2000, "XX", ii));
         fprintf(file, "%s", output);
     }
 
