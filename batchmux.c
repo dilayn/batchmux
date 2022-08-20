@@ -38,7 +38,6 @@ int main(void)
     }
 
     //integer for episode count
-    //int counter = get_int("Number of episodes: \n");
     printf("Number of episodes: \n");
     char ccounter[10];
     fgets(ccounter, sizeof(ccounter), stdin);
