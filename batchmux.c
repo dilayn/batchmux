@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <cs50.h>
 #include <string.h>
-
 
 char* string_replace(char* source, size_t sourceSize, char* substring, char* with)
 {
@@ -40,25 +38,31 @@ int main(void)
     }
 
     //integer for episode count
-    int counter = get_int("Number of episodes: \n");
+    //int counter = get_int("Number of episodes: \n");
+    printf("Number of episodes: \n");
+    char ccounter[10];
+    fgets(ccounter, sizeof(ccounter), stdin);
+    int counter = atoi(ccounter);
 
     //mkvmerge command
-    string command = get_string("Input command\n");
+    printf("Input command: \n");
+    char command[2000];
+    fgets(command, sizeof(command), stdin);
 
     //bash script header
     fprintf(file, "#!/bin/bash\n");
 
     char output[2000] = {0};
     char ii[10] = {0};
+
     //loop function
-    
     if (counter < 100) 
     {
 
         for (int i = 1; i < counter + 1; i++)
         {
             snprintf(ii, 10, "%02d", i);
-            snprintf(output, 2000, "%s\n", command);
+            snprintf(output, 2000, "%s", command);
             while(string_replace(output, 2000, "XX", ii));
             fprintf(file, "%s", output);
         }
@@ -68,7 +72,7 @@ int main(void)
         for (int i = 1; i < counter + 1; i++)
         {
             snprintf(ii, 10, "%03d", i);
-            snprintf(output, 2000, "%s\n", command);
+            snprintf(output, 2000, "%s", command);
             while(string_replace(output, 2000, "XX", ii));
             fprintf(file, "%s", output);
         }
