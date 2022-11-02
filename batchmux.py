@@ -1,5 +1,6 @@
-# Open the script file
-file = open("batchmux.sh", "wt")
+# Name and open the script file
+file = input("TV Show name: ") + ".sh"
+file = open(file, "wt")
 
 # Specify number of episodes
 i = int(input("Number of episodes: ")) + 1
@@ -21,5 +22,5 @@ elif i >= 101:
     for i in range(1, i):
         ep = str(i)
         file.write(command.replace("XX", ep.zfill(3)) + "\n")
-        
+
 file.close()
