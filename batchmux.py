@@ -21,3 +21,5 @@ elif i >= 101:
     for i in range(1, i):
         ep = str(i)
         file.write(command.replace("XX", ep.zfill(3)) + "\n")
+        
+file.close()
